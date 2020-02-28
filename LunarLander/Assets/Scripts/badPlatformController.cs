@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class badPlatformController : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class badPlatformController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            SceneManager.LoadScene("Ending", LoadSceneMode.Single);
             //goto ending scene
             //endmsg = "failed landing"
         }

@@ -523,7 +523,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1214162880
+--- !u!1001 &1097804009
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -533,7 +533,7 @@ PrefabInstance:
     - target: {fileID: 2520106161336080918, guid: e3be7b7606f9f469ab3853f1769aa1b3,
         type: 3}
       propertyPath: m_Name
-      value: fun flowy space theme
+      value: BG Music
       objectReference: {fileID: 0}
     - target: {fileID: 3783810108434831541, guid: e3be7b7606f9f469ab3853f1769aa1b3,
         type: 3}
@@ -589,21 +589,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7629580936911566128, guid: e3be7b7606f9f469ab3853f1769aa1b3,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7629580936911566128, guid: e3be7b7606f9f469ab3853f1769aa1b3,
-        type: 3}
-      propertyPath: BypassEffects
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7629580936911566128, guid: e3be7b7606f9f469ab3853f1769aa1b3,
-        type: 3}
-      propertyPath: BypassReverbZones
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3be7b7606f9f469ab3853f1769aa1b3, type: 3}
