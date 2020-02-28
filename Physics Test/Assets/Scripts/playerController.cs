@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    public LayerMask ground;
 	Rigidbody2D rb;
 
 	Vector2 force;
@@ -17,14 +18,21 @@ public class playerController : MonoBehaviour
     void Update()
     {
         force = Vector2.zero;
-        if(Input.GetKey(KeyCode.A)){
+
+        if (Input.GetKey(KeyCode.A)){
         	force.x = -10;
         } else if(Input.GetKey(KeyCode.D)){
         	force.x = 10;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            force.y = 300;
+            Vector2 feet = new Vector2(transform.position.x, transform.position.y - 0.5f);
+            Vector2 dimensions = new Vector2(0.8f, 0.2f);
+            bool grounded = Physics2D.OverlapBox(feet, dimensions, 0, ground);
+            //Debug.Log(grounded);
+            
+            if (grounded)
+                force.y = 300;
         }
     }
 
@@ -33,6 +41,7 @@ public class playerController : MonoBehaviour
     {
     	rb.AddForce(force);
     	rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x,-5,5), rb.velocity.y);
-    	Debug.Log(rb.velocity.x);
+        Debug.Log(transform.position.x + ", " + transform.position.y);
+
     }
 }
