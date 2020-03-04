@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
                 break;
             case 0:
                 GameData.successfulLanding = true;
+
                 break;
             default:
                 break;
