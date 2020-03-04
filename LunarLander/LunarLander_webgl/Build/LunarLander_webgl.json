@@ -1,0 +1,16 @@
+{
+"companyName": "GameTeej",
+"productName": "LunarLander",
+"productVersion": "0.1",
+"dataUrl": "LunarLander_webgl.data.unityweb",
+"wasmCodeUrl": "LunarLander_webgl.wasm.code.unityweb",
+"wasmFrameworkUrl": "LunarLander_webgl.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.3.1f1"
+}

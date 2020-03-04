@@ -60,3 +60,5 @@ crashlytics-build.properties
 
 #iOS .ds_store files
 *.DS_Store
+#zip files
+*.zip

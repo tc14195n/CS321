@@ -39,12 +39,14 @@ public class badPlatformController : MonoBehaviour
             pos.x += x_speed * Time.deltaTime;
             transform.position = pos;
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
+            GameData.successfulLanding = false;
             SceneManager.LoadScene("Ending", LoadSceneMode.Single);
             //goto ending scene
             //endmsg = "failed landing"
