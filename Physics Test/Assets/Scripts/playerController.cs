@@ -8,6 +8,8 @@ public class playerController : MonoBehaviour
 	Rigidbody2D rb;
     Animator anim;
 	Vector2 force;
+    AudioSource audioSource;
+    public AudioClip clipJump;
     bool facingRight = true;
     bool jumpPending = false;
     
@@ -17,6 +19,8 @@ public class playerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -37,7 +41,12 @@ public class playerController : MonoBehaviour
             Debug.Log(grounded);
 
             if (grounded)
+            {
                 jumpPending = true;
+                audioSource.clip = clipJump;
+                audioSource.Play();
+            }
+                
         }
         if(force.x < 0)
         {
