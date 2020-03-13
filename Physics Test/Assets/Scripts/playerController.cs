@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public LayerMask ground;
+    public int feet_x, feet_y;
 	Rigidbody2D rb;
     Animator anim;
 	Vector2 force;
@@ -20,6 +21,8 @@ public class playerController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        feet_x = 0.1f;
+        feet_y = 0.45f;
 
     }
 
