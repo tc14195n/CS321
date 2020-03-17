@@ -10,7 +10,7 @@ public class cameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        x_size = 45;
+        x_size = 18;
         float ortho = (player.bounds.size.x + x_size) * Screen.height / Screen.width * 0.5f;
 
         Camera.main.orthographicSize = ortho;
