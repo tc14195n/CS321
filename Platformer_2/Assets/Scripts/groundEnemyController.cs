@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class groundEnemyController : MonoBehaviour
 {
-    [SerializeField] private LayerMask player;
     bool facingRight;
     Animator anima;
     CircleCollider2D cCol;
@@ -36,6 +35,7 @@ public class groundEnemyController : MonoBehaviour
         {
             
             anima.SetBool("seesPlayer", true);
+            Debug.Log("OnEnter: Sees Player");
         } 
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -48,6 +48,7 @@ public class groundEnemyController : MonoBehaviour
         {
             Flip();
         }
+        Debug.Log("OnStay: Sees Player");
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -56,4 +57,5 @@ public class groundEnemyController : MonoBehaviour
             anima.SetBool("seesPlayer", false);
         }
     }
+    
 }

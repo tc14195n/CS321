@@ -11,7 +11,7 @@ public class cameraController : MonoBehaviour
         Vector3 pos = transform.position;
         if(target.position.y < 0)
         {
-            pos.x = 0;
+            pos.y = 0;
         } else
         {
             pos.y = target.position.y;
