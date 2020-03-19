@@ -14,14 +14,14 @@ public class cameraController : MonoBehaviour
             pos.x = 0;
         } else
         {
-            pos.y = target.position.y + 1;
+            pos.y = target.position.y;
         }
-        if (target.position.x < 2.5f)
+        if (target.position.x < -5f)
         {
-            pos.x = 2.5f;
-        } else if(target.position.x > 30f)
+            pos.x = -5f;
+        } else if(target.position.x > 36f)
         {
-            pos.x = 30f;
+            pos.x = 36f;
         }
         else
         {
