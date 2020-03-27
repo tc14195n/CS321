@@ -7,9 +7,12 @@ public class groundEnemyController : MonoBehaviour
     bool facingRight;
     Animator anima;
     CircleCollider2D cCol;
+    AudioSource audio;
+    public AudioClip attackClip;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         facingRight = (transform.localScale.x > 0) ? true : false;
         anima = GetComponent<Animator>();
         cCol = GetComponent<CircleCollider2D>();
@@ -33,9 +36,10 @@ public class groundEnemyController : MonoBehaviour
         //Debug.Log("Skeleton collision: " + collision.name);
         if(collision.gameObject.tag == "Player")
         {
-            
+            //audio.clip = attackClip;
+            SFXManager.Play(attackClip);
             anima.SetBool("seesPlayer", true);
-            Debug.Log("OnEnter: Sees Player");
+            //Debug.Log("OnEnter: Sees Player");
         } 
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -48,7 +52,7 @@ public class groundEnemyController : MonoBehaviour
         {
             Flip();
         }
-        Debug.Log("OnStay: Sees Player");
+        //Debug.Log("OnStay: Sees Player");
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -56,6 +60,7 @@ public class groundEnemyController : MonoBehaviour
         {
             anima.SetBool("seesPlayer", false);
         }
+        //audio.Stop();
     }
     
 }

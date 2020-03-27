@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     public LayerMask ground;
-    public int feet_x, feet_y;
+    public float feet_x, feet_y;
 	Rigidbody2D rb;
     Animator anim;
 	Vector2 force;

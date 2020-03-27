@@ -140,6 +140,11 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
+  jumpClip: {fileID: 0}
+  damageClip: {fileID: 0}
 --- !u!61 &3158180989848640353
 BoxCollider2D:
   m_ObjectHideFlags: 0

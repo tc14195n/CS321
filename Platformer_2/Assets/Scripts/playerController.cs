@@ -28,13 +28,14 @@ public class playerController : MonoBehaviour
     public GameObject heart1, heart2, heart3;
     Transform trans_heart1, trans_heart2, trans_heart3;
     SpriteRenderer rend_heart1, rend_heart2, rend_heart3;
-    //public SpriteRenderer Rheart1, Rheart2, Rheart3;
     SpriteRenderer sprite;
-    
-   
+    private new AudioSource audio;
+    public AudioClip jumpClip, damageClip;
+       
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         invul = false;
         fade_time = 0.006f;
         x_dist = 0.4f;
@@ -57,23 +58,11 @@ public class playerController : MonoBehaviour
         trans_heart1.position = pos1;
         trans_heart2.position = pos2;
         trans_heart3.position = pos3;
-        
-        
-        //StartCoroutine(FadeTo(Rheart1, 0.0f, 300f));
-        //FadeTo(Rheart2, 0.0f, 30f);
-        //FadeTo(Rheart3, 0.0f, 30f);
-        /*
-        pos1.x = transform.position.x - 1;
-        pos2.x = transform.position.x;
-        pos3.x = transform.position.x + 1;
-        
-        heart1.position = pos1;
-        heart2.position = pos1;
-        heart3.position = pos1;
-        */
+
         x_drag = 1;
         facingRight = (transform.localScale.x > 0)?true:false;
         health = 3;
+        audio = GetComponent<AudioSource>();
         sprite = GetComponent<SpriteRenderer>();
         anima = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -85,7 +74,6 @@ public class playerController : MonoBehaviour
         StartCoroutine(Fade(rend_heart3, 0f));
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 pos1 = transform.position;
@@ -104,46 +92,32 @@ public class playerController : MonoBehaviour
 
         force = Vector2.zero;
         Vector3 pos = transform.position;
-        //check ground
-        checkGround();
-        //jump -> false when landed
 
-        //Player Controls
+        checkGround();
         
         if (Input.GetKey(KeyCode.A) && health > 0)
         {
             GameData.bg_move += 0.0001f;
             Walking(-10f);
-            //pos.x -= 2 * Time.deltaTime;
-            //walking animation TRUE
         } else if (Input.GetKey(KeyCode.D) && health > 0)
         {
             GameData.bg_move -= 0.0001f;
             Walking(10f);
-            //pos.x += 2 * Time.deltaTime;
-            //walking animation TRUE
         } else
         {
             if (grounded)
             {
-                //force.x = 0;
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
             
             
             anima.SetBool("isWalking", false);
-            //walking animation FALSE
         }
         if (Input.GetKeyDown(KeyCode.Space) && grounded && health > 0)
         {
             isJumping = true;
-            //force.y = 400;
-
         }
-        transform.position = pos;
-        //Debug.Log("x force: " + force.x);
-
-        
+        transform.position = pos;        
     }
 
     private void FixedUpdate()
@@ -152,6 +126,9 @@ public class playerController : MonoBehaviour
         {
             force.y = 300;
             anima.SetBool("isJumping", true);
+            //audio.clip = jumpClip;
+            //audio.Play();
+            SFXManager.Play(jumpClip,0.5f);
             isJumping = false;
         }
         rb.AddForce(force);
@@ -222,13 +199,17 @@ public class playerController : MonoBehaviour
             if (!invul)
             {
                 Debug.Log("HIT");
-                StartCoroutine(Blink());
+                //audio.clip = damageClip;
+                //audio.Play();
+                
                 StartCoroutine(Fade(rend_heart1, 1f));
                 StartCoroutine(Fade(rend_heart2, 1f));
                 StartCoroutine(Fade(rend_heart3, 1f));
                 switch (health)
                 {
                     case 3:
+                        SFXManager.Play(damageClip);
+                        StartCoroutine(Blink());
                         Animator anim = heart1.GetComponent<Animator>();
                         anim.SetBool("heartLost", true);
                         anim.SetBool("stop", true);
@@ -238,6 +219,8 @@ public class playerController : MonoBehaviour
                         health--;
                         break;
                     case 2:
+                        SFXManager.Play(damageClip);
+                        StartCoroutine(Blink());
                         anim = heart2.GetComponent<Animator>();
                         anim.SetBool("heartLost", true);
                         anim.SetBool("stop", true);
@@ -247,6 +230,7 @@ public class playerController : MonoBehaviour
                         health--;
                         break;
                     case 1:
+                        SFXManager.Play(damageClip);
                         anim = heart3.GetComponent<Animator>();
                         anim.SetBool("heartLost", true);
                         anim.SetBool("stop", true);
