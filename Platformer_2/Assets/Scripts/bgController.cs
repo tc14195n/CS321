@@ -5,24 +5,32 @@ using UnityEngine;
 public class bgController : MonoBehaviour
 {
     public Transform target;
-    int follow_adjust;
-    // Start is called before the first frame update
-    void Start()
-    {
-        follow_adjust = 1;
-        Vector3 pos = transform.position;
-        pos.x = target.transform.position.x;
-        pos.y = target.transform.position.y;
-        transform.position = pos;
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
-        pos.x = target.transform.position.x - follow_adjust*2;
-        pos.y = target.transform.position.y;
+        if (target.position.y < 0)
+        {
+            pos.y = 0;
+        }
+        else
+        {
+            pos.y = target.position.y;
+        }
+        if (target.position.x < -5f)
+        {
+            pos.x = -5f;
+        }
+        else if (target.position.x > 36f)
+        {
+            pos.x = 36f;
+        }
+        else
+        {
+            pos.x = target.position.x + GameData.bg_move;
+        }
+
+
         transform.position = pos;
     }
 }

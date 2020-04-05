@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class fallZoneController : MonoBehaviour
 {
+    public AudioClip fallClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class fallZoneController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            SFXManager.Play(fallClip,0.01f);
             SceneManager.LoadScene("GameOver");
         }
     }
