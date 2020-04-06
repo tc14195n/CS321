@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 50.0f, ForceMode.Impulse);
 
-        Debug.LogError("Test");
+        //Debug.LogError("Test");
     }
 
     // Update is called once per frame
