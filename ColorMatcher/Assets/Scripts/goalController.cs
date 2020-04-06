@@ -22,6 +22,7 @@ public class goalController : MonoBehaviour
         {
             //add 1 to game_score
             Destroy(this.gameObject);
+            GameData.points += 1;
         }
     }
 }

@@ -7,7 +7,7 @@ public class playerController : MonoBehaviour
     Rigidbody rb;
     Vector3 torque;
     float speed = 6.0f;
-    float turning_speed = 60.0f;
+    float turning_speed = 75.0f;
     string direction;
     // Start is called before the first frame update
     void Start()
