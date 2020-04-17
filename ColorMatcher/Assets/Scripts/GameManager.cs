@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         switch (active_scene)
         {
             case "Title":
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     SceneManager.LoadScene("Main1");
                 }
@@ -58,9 +58,9 @@ public class GameManager : MonoBehaviour
                 }
                 if(GameData.countdown > 0)
                 {
-                    GameData.countdown -= 1f * Time.deltaTime;
+                    GameData.countdown -= 1.5f * Time.deltaTime;
                     //timer_text = GameData.countdown.ToString();
-                    timer_text.text = GameData.countdown.ToString("0.00");
+                    timer_text.text = GameData.countdown.ToString("0");
 
                 } else if(GameData.countdown <= 0)
                 {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case "GameOver":
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     SceneManager.LoadScene("Title");
                 }
