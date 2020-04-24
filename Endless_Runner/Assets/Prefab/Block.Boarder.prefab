@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6426163837583337598}
   - component: {fileID: -3754663390917713190}
   - component: {fileID: 9147530985978157069}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block.Boarder
   m_TagString: sky_tile
   m_Icon: {fileID: 0}

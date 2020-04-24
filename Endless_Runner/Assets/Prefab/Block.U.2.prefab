@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8866552307725781499}
   - component: {fileID: 6390558914390352502}
   - component: {fileID: 5039532743593539083}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block.U.2
   m_TagString: sky_tile
   m_Icon: {fileID: 0}
