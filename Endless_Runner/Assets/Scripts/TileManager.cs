@@ -21,8 +21,9 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //player_pos = GetComponent<Transform>();
         InvokeRepeating("skyTile", 1f, 1f);
-        for(int i = -5; i < 20; i++)
+        for(int i = -5; i <= 20; i++)
         {
             last_tile = i;
             floorTile(i);
@@ -33,9 +34,9 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player_pos.position.z > last_tile + 20)
+        if (player_pos.position.z > last_tile - 20)
         {
-            floorTile(last_tile - 1);
+            floorTile(last_tile++);
         }
         //check if they're OOB - remove ifso
     }
@@ -46,7 +47,8 @@ public class TileManager : MonoBehaviour
     void skyTile()
     {
         int tile = Random.Range(0, fall_tiles.Count);
-        Vector3 pos = new Vector3(Random.Range(-10,10),Random.Range(5,10),Random.Range(3,6) + player_pos.position.z);
+        Vector3 pos = new Vector3(Random.Range(-6,6),Random.Range(5,10),Random.Range(8,15) + player_pos.position.z);
+        //these values can be adjusted to increase difficulty e.g. generate sky_tiles further ahead ->> messes up the path
         Instantiate(fall_tiles[tile], pos, Random.rotation);
     }
     void floorTile(float z_pos)

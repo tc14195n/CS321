@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df0e975abe9b774b985f8667405c4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameover: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +484,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7922261023875457547, guid: 9daa7e1f3cf6c834192528f9d4659b06,
+        type: 3}
+      propertyPath: ground.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9daa7e1f3cf6c834192528f9d4659b06, type: 3}
 --- !u!1 &2080212617
@@ -529,8 +533,7 @@ MonoBehaviour:
   - {fileID: 6932280793946352587, guid: e943e231e3070d24ea56eade183e0044, type: 3}
   - {fileID: 1176660034489011387, guid: 9502caf2020457b4294af6fd71289f15, type: 3}
   - {fileID: 4288658939833045640, guid: 18a0313112fa3134c911383f8b20dbfe, type: 3}
-  player_pos: {fileID: 1027579445737003166, guid: 9daa7e1f3cf6c834192528f9d4659b06,
-    type: 3}
+  player_pos: {fileID: 1927483896}
 --- !u!4 &2080212619
 Transform:
   m_ObjectHideFlags: 0

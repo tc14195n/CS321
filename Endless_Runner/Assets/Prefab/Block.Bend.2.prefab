@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4855960108885748123}
   - component: {fileID: 2209073482971163347}
   - component: {fileID: -1157761833225479873}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block.Bend.2
   m_TagString: sky_tile
   m_Icon: {fileID: 0}

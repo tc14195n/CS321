@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool gameover = false;
+    //public bool gameover = false;
     //public GameObject player;
     void Start()
     {
@@ -17,9 +17,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameover)
-        {
-            //go to gameover scene
-        }
+        
     }
 }
