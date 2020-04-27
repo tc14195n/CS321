@@ -6,4 +6,8 @@
         gameover = new_state;
         return gameover;
     }
+    public static bool gameOver()
+    {
+        return gameover;
+    }
 }

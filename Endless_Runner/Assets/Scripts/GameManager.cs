@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,23 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case (0):
+                if (Input.GetKeyDown(KeyCode.Space))
+                    SceneManager.LoadScene("Main1");
+                break;
+            case (1):
+                if (GameData.gameOver())
+                    SceneManager.LoadScene("Ending1");
+                break;
+            case (2):
+                if (Input.GetKeyDown(KeyCode.Space))
+                    SceneManager.LoadScene("Intro1");
+                break;
+            default:
+                break;
+        }
         
     }
 }

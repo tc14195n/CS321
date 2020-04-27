@@ -47,7 +47,7 @@ public class TileManager : MonoBehaviour
     void skyTile()
     {
         int tile = Random.Range(0, fall_tiles.Count);
-        Vector3 pos = new Vector3(Random.Range(-6,6),Random.Range(5,10),Random.Range(8,15) + player_pos.position.z);
+        Vector3 pos = new Vector3(Random.Range(-5,5),Random.Range(5,10),Random.Range(10,15) + player_pos.position.z);
         //these values can be adjusted to increase difficulty e.g. generate sky_tiles further ahead ->> messes up the path
         Instantiate(fall_tiles[tile], pos, Random.rotation);
     }
