@@ -6,16 +6,21 @@ public class playerController : MonoBehaviour
 {
     Rigidbody player_rb;
     Vector3 force;
+    Transform player_trans;
     float z_speed, x_speed;
     float jump_force;
     SphereCollider sphere_col;
     [SerializeField] private LayerMask ground;
     bool grounded;
+    bool jumping;
+    public AudioClip jump_sound;
     // Start is called before the first frame update
     //float last_built = -5;
     void Start()
     {
+        jumping = false;
         grounded = false;
+        player_trans = GetComponent<Transform>();
         sphere_col = GetComponent<SphereCollider>();
         player_rb = GetComponent<Rigidbody>();
         z_speed = 20;
@@ -26,7 +31,10 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(grounded);
+        if (player_trans.position.y <= -20)
+            GameData.setGameOver(true);
+        GameData.setPlayerZ((int)player_trans.position.z);
+        //Debug.Log(grounded);
         force = Vector3.zero;
         /*
          * Control scheme:
@@ -62,12 +70,18 @@ public class playerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && grounded)
         {
             force.y = jump_force;
+            jumping = true;
             //player_rb.AddForce(force);
         }
 
     }
     private void FixedUpdate()
     {
+        if (jumping)
+        {
+            SFXManager.playClip(jump_sound,0.5f);
+            jumping = false;
+        }
         player_rb.AddForce(force);
         player_rb.velocity = new Vector3(Mathf.Clamp(player_rb.velocity.x, -4, 4), Mathf.Clamp(player_rb.velocity.y, -6, 6), Mathf.Clamp(player_rb.velocity.z, -10, 10));
         //if()
